@@ -13,10 +13,11 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 var _CityImprovementMaintenanceGold_cityImprovement;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CityImprovementMaintenanceGold = void 0;
-const Yield_1 = require("@civ-clone/core-yield/Yield");
-class CityImprovementMaintenanceGold extends Yield_1.default {
-    constructor(value, cityImprovement) {
-        super(value, cityImprovement.id());
+const Gold_1 = require("@civ-clone/base-city-yield-gold/Gold");
+const NegativeYield_1 = require("@civ-clone/core-yield/NegativeYield");
+class CityImprovementMaintenanceGold extends Gold_1.default {
+    constructor(value = 0, cityImprovement = null) {
+        super(value, cityImprovement ? cityImprovement.id() : 'none');
         _CityImprovementMaintenanceGold_cityImprovement.set(this, void 0);
         __classPrivateFieldSet(this, _CityImprovementMaintenanceGold_cityImprovement, cityImprovement, "f");
         this.addKey('cityImprovement');
@@ -27,5 +28,6 @@ class CityImprovementMaintenanceGold extends Yield_1.default {
 }
 exports.CityImprovementMaintenanceGold = CityImprovementMaintenanceGold;
 _CityImprovementMaintenanceGold_cityImprovement = new WeakMap();
+(0, NegativeYield_1.makeNegative)(CityImprovementMaintenanceGold);
 exports.default = CityImprovementMaintenanceGold;
 //# sourceMappingURL=CityImprovementMaintenanceGold.js.map
